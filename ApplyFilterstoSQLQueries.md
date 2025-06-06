@@ -20,7 +20,7 @@ SELECT * FROM log_in_attempts WHERE login_time > '18:00' AND success = 0;
 ```
 This will yield me the following table:
 
-![](Images\C4M4\Screenshot%2025-06-01%163811.png)
+![](Images/C4M4/Screenshot%2025-06-01%163811.png)
 
 Note that the `success` value being '0' means `FALSE`; this indicates that the login attempt was unsuccessful. It seems there were 19 failed login attempts being made after business hours.
 
@@ -31,7 +31,7 @@ SELECT * FROM log_in_attempts WHERE login_date = '2022-05-08' OR login_date = '2
 ```
 This query yields this large table:
 
-![](Images\C4M4\Screenshot%2025-06-01%164230.png)
+![](Images/C4M4/Screenshot%2025-06-01%164230.png)
 
 Looks like there were 75 login attempts in these two specific days.
 
@@ -42,7 +42,7 @@ SELECT * FROM log_in_attempts WHERE NOT country LIKE 'MEX%';
 ```
 Which gives me:
 
-![](Images\C4M4\Screenshot%2025-06-01%164606.png)
+![](Images/C4M4/Screenshot%2025-06-01%164606.png)
 
 In this query, I had to use the '`%`' symbol next to '`MEX`' as a wildcard because the table in the `country` column has both `MEX` and `MEXICO` values. The `LIKE` operator allows me to search for certain values that has patterns that match what I am describing (doesn't necessarily have to be the exact value). Using the `%` symbol and the `LIKE` operator will return any strings with just `MEX` or additional characters after `MEX` (basically any string so as long as the string starts with 'MEX'). We can see that there were 144 login attempts made outside of Mexico.
 
@@ -53,7 +53,7 @@ SELECT * FROM employees WHERE department = 'Marketing' AND office LIKE 'East%';
 ```
 Which gives me this table:
 
-![](Images\C4M4\Screenshot%2025-06-01%165126.png)
+![](Images/C4M4/Screenshot%2025-06-01%165126.png)
 
 We can see that there are different offices in the East building, therefore to retrieve all the East building offices, I would need to use the '`%`' symbol after `East`. I also needed to use an `AND` operator because I needed employees that are both in the Marketing department AND have offices in the East building.
 
@@ -64,7 +64,7 @@ SELECT * FROM employees WHERE department = 'Finance' OR department = 'Sales';
 ```
 Which gives me:
 
-![](Images\C4M4\Screenshot%2025-06-01%165431.png)
+![](Images/C4M4/Screenshot%2025-06-01%165431.png)
 
 Here I used the `OR` operator because employees can't both be in the Finance department and the Sales department. So to return employees from either department, I would need an `OR` operator.
 
@@ -76,7 +76,7 @@ SELECT * FROM employees WHERE NOT department = 'Information Technology';
 ```
 Which gives us this long table:
 
-![](Images\C4M4\Screenshot%2025-06-01%165750.png)
+![](Images/C4M4/Screenshot%2025-06-01%165750.png)
 
 Here I had to use the `NOT` operator to make it easier for me. If I didn't use the `NOT` operator, I would have to list and type out all the departments in the organization except the IT department -- this would be a waste of time. The `NOT` operator allows me so select all departments at once except the IT department.
 
