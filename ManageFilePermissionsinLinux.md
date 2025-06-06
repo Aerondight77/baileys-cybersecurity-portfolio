@@ -16,6 +16,7 @@ To enter the `projects` directory. I then used
 ls -la
 ```
 to determine the existing permissions of files and directories inside this directory, including hidden files. The following screenshot shows the list of contents inside the directory (last column), the permissions for the respective files/directory (first column), the owner (`researcher2`), and the group it belongs to (`research_team`). Note that line 1 under "`total 32`" indicates the current directory (`projects`), and line 2 indicates the parent directory (`home`).
+
 ![image1](Images/C4M3/Screenshot%202025-05-24%20171237.png)
 
 # Describe the permissions string
@@ -32,7 +33,9 @@ The organization determined that other shouldn't have write access to any of the
 chmod o-w project_k.txt
 ```
 Which yields me the following result when running `ls -la`:
+
 ![image2](Images/C4M3/Screenshot%202025-05-24%20173020.png)
+
 The first two lines of the screenshot display the commands I entered, and the other lines display the output of the second command. The `chmod` command changes the permissions on files and directories. The first argument indicates what permissions should be changed, in this case, the minus (`-`) sign indicates I will remove write (`w`) permission from others (`o`), and the second argument specifies the file or directory. In this example, I removed write permissions from all other users for the` project_k.txt` file. After this, I used `ls -la` to review the changes.
 
 ## Change file permissions on a hidden file
@@ -41,7 +44,20 @@ The research team at my organization recently archived `project_x.txt`. They do 
 chmod u-w,g-w,g+r .project_x.txt
 ```
 Which yields:
+
 ![image3](Images/C4M3/Screenshot%202025-05-24%20173704.png)
+
+Here we can see that only `researcher2` has execute permissions. It was previously determined that the group had execute permissions, so I used the `chmod` command to remove them. The `researcher2` user already had execute permissions, so they did not need to be added.
+
+# Change directory permissions
+My organization only wants the `researcher2` user to have access to the drafts directory and its contents. This means that no one other than `researcher2` should have execute permissions. I will run the following command:
+```
+chmod g-x drafts
+```
+Which yields:
+
+![](Images/C4M3/Screenshot%202025-05-24%20174017.png)
+
 Here we can see that only `researcher2` has execute permissions. It was previously determined that the group had execute permissions, so I used the `chmod` command to remove them. The `researcher2` user already had execute permissions, so they did not need to be added.
 
 # Summary
