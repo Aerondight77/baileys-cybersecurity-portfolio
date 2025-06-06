@@ -8,5 +8,5 @@ Click the following links to the project:
 
 - [Performing a security audit](SecurityAudit.md)
 - [Using the NIST Cybersecurity Framework to respond to a security incident](NISTFrameworkIncident.md)
-- [Manage file permissions in Linux](ManageFilePermissionsinLinux.md)
+- [Managing file permissions in Linux](ManageFilePermissionsinLinux.md)
 - [Applying filters to SQL queries](ApplyFilterstoSQLQueries.md)
